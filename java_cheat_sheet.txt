@@ -1,0 +1,104 @@
+JVM: Java Virtual Machine
+ - platform-independent way of executing code
+ - allows Java to be run without recompiling every time
+
+JRE: Java Runtime Environment
+ - contains JVM and plug-ins
+
+JDK: Java Development Kit
+ - includes compilers, debuggers, and tools
+ - necessary for development and contains JRE
+
+Classes
+ - blueprint for objects
+ - have attributes and behaviors
+ - constructors to create class objects
+    - these objects are instances
+
+Static
+ - belongs to the class itself
+ - do not need an instance
+
+Nonstatic
+ - belongs to each object from the class
+ - instance method
+ - "this" keyword
+
+Scope
+ - local variables: inside methods
+ - instance variables: inside entire class
+
+Access Modifiers
+ - public: accessible everywhere
+ - protected: all packages and subclasses
+ - none: only current package
+ - private: class only
+
+Project Jigsaw
+ - introduced modularization to Java
+ - allows you to scale up or down the functionality needed for an application
+
+Optionals
+ - container object that may or may not have a given value
+ - isPresent() and get()
+    - orElse(""): provides default value that will be returned if the optional is null
+ - helps avoid NullPointerExceptions
+
+Lambdas
+ - function that does not belong to a class
+ - Consumer: input and no output
+ - Function: input and output
+ - Predicate: returns true or false
+ - Supplier: no input and output
+
+Streams API
+ - forEach() is available instead of for loop
+ - .stream() allow for additional one line code
+
+Strings
+ - immutable
+ - StringBuilder objects are mutable
+    - StringBuffer: thread safe
+ - normalize: trim spaces, remove empties, and change all characters to lowercase
+ - substring: inclusive first index, exclusive last index
+    - apples.substring(2,4) = pl
+ - string literal: constant of characters ("abc") so references all point to the same value
+    - string object: two objects may have the same value, but the objects are separate references
+    - .equals: compares true value instead of reference to string object
+
+Data Structures
+ - Array: collection of objects of the same type
+    - size can never be changed, is allocated when initialized
+ - ArrayList: resizable array class
+ - LinkedList: elements of the same type are linked using pointers
+    - head, nodes, tail
+    - elements do not need to be stored next to each other
+       - makes insert/delete cheaper
+    - more memory if required for storing elements
+       - search is also more time-consuming
+    - singly-linked: pointer to next node only
+    - doubly-linked: pointer to next and previous node
+ - Stack: data is stored last in first out (LIFO)
+    - push/pop
+    - useful for reversing and keeping track of state
+ - Queue: data is stored first in first out (FIFO)
+    - LinkedList is an implemented Queue with FIFO restrictions
+    - useful for storing order of processes
+ - HashMap: key-value pairs
+    - unordered but fast lookup
+    - Java has other hash implementations
+
+Object-Oriented Programming
+ - abstraction: generalizing complex functionality
+    - abstract class: functionality that subclasses can implement or override
+    - interface: set of method signatures that have not been implemented
+ - encapsulation: binding data and methods together in a class
+    - data hiding: declaring private fields that can only be accessed through public methods
+    - hides implementation details
+ - inheritance: one class acquires the fields and methods of another through extension
+    - write common functionality in one class extended by more specific classes
+    - sub and super classes with @Override
+ - polymorphism
+    - method overriding: functionality determined at runtime
+    - method overloading: methods with the same name that take it different types as parameters
+       - compile time

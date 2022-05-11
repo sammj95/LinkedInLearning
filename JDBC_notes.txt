@@ -1,0 +1,80 @@
+RDBMS: relational database management system
+JDBC: Java Database Connectivity
+ODBC: Open Database Connectivity
+
+Basic flow
+mount driver > create connection > execute SQL > commit/rollback > close connection 
+
+Exceptions
+ - SQLSTATE
+ - ErrorCode: mostly vendor specific
+ - unpack SQLExceptions into your own named exceptions
+ - create named exceptions for most common issues
+ - runtime: bubbles up to be caught at the top
+ - leak: SQLException bubbles up which must be declared
+ 
+Terms
+ - DriverManager: class that interacts with the driver 
+ - DataSource: modern class that interacts with the driver 
+ - Connection: class that manages connection between client and server
+ - Statement: SQL class 
+ - ResultSet: response from database in tabular form
+ - PreparedStatement: extension of statement that is precompiled
+    - not used in practice because it's difficult to manage 
+ - CallableStatement: extension of PreparedStatement that references stored procedures
+ - Third Normal Form: design approach for relational databases to reduce the duplication of data and simplify data management
+
+Transactions
+ - series of statements that need to be executed completely
+    - i.e. withdraw money from one account and deposit into another at the same time
+ - rollback: uncommitted transactions are removed
+ - atomic: multiple statements that either commit or rollback together
+ - next(): iterates through ResultSet
+ - execute: runs the statement
+    - commit: actually writes the data with rollback if there's an exception
+ - auto-commit: not transactional and data is immediately committed
+    - not recommended for RDBMS
+ 
+CRUD
+ - create, read, update, delete
+ - DML: data manipulation language
+ - idempotent: value is unchanged when operated on multiple times in a row
+    - does not cause duplicate updates 
+ - SELECT FOR UPDATE: used to order transactions by controlling concurrent access
+ 
+DAO
+ - data access object
+ - layer between JDBC and code
+ - DTO: data transfer object 
+ 
+Repository
+ - single-table access per class 
+ - join in code instead of database
+ - sharding of database to help with performance (working with only a piece of the data)
+ 
+ResultSet 
+ - contains metadata and table of results
+ - result when executing a statement
+
+Connection Pooling
+ - pattern to reuse connections from request to request
+   - essentially a cache of connections
+ - resource and time efficient
+ - usually handled by libraries
+
+Paging
+ - limits results while still being able to retrieve all data
+
+Java Persistence API (JPA)
+ - standard Java specification for ORM
+ - ORM: Object Relational Mapping
+    - referred to as library that implements technique
+    - interact with database through objects
+ - reduces JDBC code and focuses on OOP
+
+Java
+ - packages contain multiple classes that have access to each other
+ - final: used to define constants
+ - J2EE: includes core Java alongside a powerful set of libraries
+    - designed for enterprise applications that run on servers
+ - enum: used to define a fixed set of constraint, like days of the week
